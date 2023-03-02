@@ -1,0 +1,16 @@
+.Nav__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: auto;
+}
+.Nav__button{
+    -moz-box-shadow: 19px 22px 20px -5px rgba(118,45,209,0.67);
+    -webkit-box-shadow: 19px 22px 20px -5px rgba(118,45,209,0.67);
+    box-shadow: 19px 22px 20px -5px rgba(118,45,209,0.67);
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid white;
+}
