@@ -6,7 +6,7 @@ import {
 } from 'mdb-react-ui-kit';
 import { FaUser, FaEnvelope, FaLock } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
-import { register } from 'redux/auth/operations';
+import { authSignUpUser } from 'redux/auth/operations';
 import css from "./Register.module.css";
 
 function Register() {
@@ -16,7 +16,7 @@ function Register() {
     e.preventDefault();
     const form = e.currentTarget;
     dispatch(
-      register({
+      authSignUpUser({
         name: form.elements.name.value,
         email: form.elements.email.value,
         password: form.elements.password.value,

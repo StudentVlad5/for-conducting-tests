@@ -1,6 +1,6 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { filtersReducer } from './filterSlice';
-import {contactsReducer} from './contactsSlice';
+import { contactsReducer } from './contactsSlice';
 import {authReducer} from './auth/slice';
 import { 
     persistStore,
@@ -27,7 +27,6 @@ window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
 };
 
 export const store = configureStore({
