@@ -6,11 +6,12 @@ import { RestrictedRoute } from "./RestrictedRoute";
 import { useDispatch, useSelector } from "react-redux";
 // import { refreshUser } from '../redux/auth/operations';
 import { selectIsRefreshing } from "../redux/auth/selectors";
+import  Tests from "../components/Tests/tests"
 
 const HomePage = lazy(() => import("../pages/Home"));
 const Login = lazy(() => import("../pages/Login"));
 const Register = lazy(() => import("../pages/Register"));
-const Contacts = lazy(() => import("../pages/QuestionForm"));
+const QuestionForm = lazy(() => import("../pages/QuestionForm"));
 
 export const AppPath = () => {
   const dispatch = useDispatch();
@@ -58,7 +59,13 @@ export const AppPath = () => {
           <Route
             path="questionform"
             element={
-              <PrivateRoute redirectTo="/login" component={<Contacts />} />
+              <PrivateRoute redirectTo="/login" component={<QuestionForm />} />
+            }
+          />
+          <Route
+            path="tests"
+            element={
+              <PrivateRoute redirectTo="/login" component={<Tests />} />
             }
           />
           <Route

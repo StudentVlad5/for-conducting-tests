@@ -9,8 +9,8 @@ const dispatch = useDispatch();
 const name = useSelector(selectUser)
 
 const handleOut = (e) => {
-      dispatch(
-        logOut({})
+      (
+        logOut(dispatch)
       );
     };
 

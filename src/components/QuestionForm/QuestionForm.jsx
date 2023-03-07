@@ -1,4 +1,6 @@
 import {useState} from "react";
+import { getDatabase, ref, set } from "firebase/database";
+import { nanoid } from 'nanoid'
 
 const initial_state = {
     question: "",
@@ -9,7 +11,7 @@ const initial_state = {
     answer4: "",
     correctAnswer:"",
 }
-
+const dataBase = getDatabase()
 function  QuestionForm  () {
 
     const [questionForm, setQuestionForm] = useState(initial_state);
@@ -20,26 +22,19 @@ function handleChangeForm  (event) {
     return setQuestionForm(questionForm=>({...questionForm, [name]:value}));
 }
 
-function handleFormSubmit  (event)  {
+const handleFormSubmit  = async(event) => {
     event.preventDefault();
-    console.log(questionForm)
-//     const isValidateForm =  validateForm();
-//     if(isValidateForm){
-//     let newContact = {name: initial_state.name, number: initial_state.phone};
+    console.log(questionForm);
+    // додає питання до БД 
+    const id = nanoid();
+      set(ref(dataBase, questionForm.topic+'/'+ id), {
+        ...questionForm, id
+      });
+
     resetForm ();
-//     dispatch(addContact(newContact));
-// }
+
 }
 
-// function validateForm () {
-//     if (!initial_state.name || !initial_state.phone){
-//         alert('Some field is empty');
-//         return false}
-//     else if ([...contacts].filter(key=>key.name === initial_state.name).length > 0){
-//          alert("contact already exist");
-//     return false}
-//     else return true
-//     }
 
 function resetForm () {
     setQuestionForm(initial_state)
@@ -54,15 +49,21 @@ function resetForm () {
                 onChange = {handleChangeForm}
                 required/>
             </label>
-            <label>
-                <input 
-                type="text"
+            <label>Topic of question
+                <select 
                 name="topic"
+                id ="topic"
                 value={questionForm.topic}
                 onChange = {handleChangeForm}
-                required/>
+                >
+                <option value="">--Please choose an option--</option>
+                <option value="react">React</option>
+                <option value="js">JS</option>
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                </select>
             </label>
-            <label>
+            <label>Answer option 1
                 <input 
                 type="text"
                 name="answer1"
@@ -70,8 +71,8 @@ function resetForm () {
                 onChange = {handleChangeForm}
                 required/>
             </label>
-            <input type="radio" name="correctAnswer" value="answer1" id="answer1" onChange={handleChangeForm}></input>
-            <label>
+            <label><input type="radio" name="correctAnswer" value="answer1" id="answer1" onChange={handleChangeForm}></input>Correct answer</label>
+            <label>Answer option 2
                 <input 
                 type="text"
                 name="answer2"
@@ -79,8 +80,8 @@ function resetForm () {
                 onChange = {handleChangeForm}
                 required/>
             </label>
-            <input type="radio" name="correctAnswer" value="answer2" id="answer2" onChange={handleChangeForm}></input>
-            <label>
+            <label><input type="radio" name="correctAnswer" value="answer2" id="answer2" onChange={handleChangeForm}></input> Correct answer</label>
+            <label>Answer option 3
                 <input 
                 type="text"
                 name="answer3"
@@ -88,8 +89,8 @@ function resetForm () {
                 onChange = {handleChangeForm}
                 required/>
             </label>
-            <input type="radio" name="correctAnswer" value="answer3" id="answer3" onChange={handleChangeForm}></input>
-            <label>
+            <label><input type="radio" name="correctAnswer" value="answer3" id="answer3" onChange={handleChangeForm}></input>Correct answer</label>
+            <label>Answer option 4
                 <input 
                 type="text"
                 name="answer4"
@@ -97,8 +98,8 @@ function resetForm () {
                 onChange = {handleChangeForm}
                 required/>
             </label>
-            <input type="radio" name="correctAnswer" value="answer4" id="answer4" onChange={handleChangeForm}></input>
-            <button type='submit'>Add contact</button>
+            <label><input type="radio" name="correctAnswer" value="answer4" id="answer4" onChange={handleChangeForm}></input>Correct answer</label>
+            <button type='submit'>Add question</button>
         </form>)
         
     }

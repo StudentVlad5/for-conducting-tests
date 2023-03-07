@@ -1,6 +1,7 @@
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  getAuth,
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
@@ -61,8 +62,9 @@ export const logIn = (userSignIn) => async (dispatch, getState) => {
 
 export const logOut = async (dispatch, getState) => {
   try {
-    await signOut(auth);
-    dispatch(authSlice.actions.authSignOut());
+    const authID = getAuth();
+    signOut(authID);
+    await dispatch(authSlice.actions.authSignOut());
   } catch (error) {
     console.log("error", error);
     alert("Помилка", error.message);

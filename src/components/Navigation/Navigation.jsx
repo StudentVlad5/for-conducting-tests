@@ -8,6 +8,7 @@ const Navigation = () =>{
         <ul className={css.Nav__container}>
            <li><Link to={'/'}><button className={css.Nav__button} type="button">Home</button></Link></li>
            {isLogin && <li><Link to={'questionform'}><button className={css.Nav__button}type="button">Question Form</button></Link></li>}
+           {isLogin && <li><Link to={'tests'}><button className={css.Nav__button}type="button">Start testes</button></Link></li>}
         </ul>
     )
 }
