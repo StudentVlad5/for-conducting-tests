@@ -13,8 +13,6 @@ const Tests = () => {
   const [course, setCourse] = useState("");
   const state = useSelector(getStatistics);
 
-
-
   const dataBase = getDatabase();
   const dispatch = useDispatch();
 
@@ -39,13 +37,15 @@ const Tests = () => {
   const handleanswer = (e) => {
     let total = state[`${course}`].total;
     let success = state[`${course}`].success;
-   console.log("course", course)
+
     total = total + 1;
     if (e.target.value === list[numberOfQuestion].correctAnswer) {
-    success++;
+      success++;
     }
-    console.log("total", total, "success", success);
-    dispatch(addStatistic({ [`${course}`]: { total: total, success: success } }));
+
+    dispatch(
+      addStatistic({ [`${course}`]: { total: total, success: success } })
+    );
     setNumberOfQuestion((pr) => pr + 1);
   };
 
@@ -64,20 +64,21 @@ const Tests = () => {
         <div className={css.courseName} onClick={() => setCourse("html")}>
           html
         </div>
-        <Statistics />
       </section>
-      {numberOfQuestion >= list.length && (
-        <h4>Це власне було останнє питання цього курсу.</h4>
+    <section className={css.question__container}>
+    {numberOfQuestion >= list.length && (
+        <section className={css.last__container}>
+          <h4>Це власне було останнє питання цього курсу.</h4>
+        </section>
       )}
       {list.length !== 0 &&
         course !== "" &&
         numberOfQuestion < list.length && (
-          <section className={css.question__container}>
-            <div className={css.question}>
+        <div><div className={css.question}>
               {list[numberOfQuestion].question}
             </div>
-            <div>
-              <div>
+            <div className={css.answer__container}>
+              {list[numberOfQuestion].answer1 !== " " && (
                 <button
                   className={css.answer__button}
                   value="answer1"
@@ -86,6 +87,8 @@ const Tests = () => {
                 >
                   {list[numberOfQuestion].answer1}
                 </button>
+              )}
+              {list[numberOfQuestion].answer2 !== " " && (
                 <button
                   className={css.answer__button}
                   value="answer2"
@@ -94,8 +97,8 @@ const Tests = () => {
                 >
                   {list[numberOfQuestion].answer2}
                 </button>
-              </div>
-              <div>
+              )}
+              {list[numberOfQuestion].answer3 !== " " && (
                 <button
                   className={css.answer__button}
                   value="answer3"
@@ -104,6 +107,8 @@ const Tests = () => {
                 >
                   {list[numberOfQuestion].answer3}
                 </button>
+              )}
+              {list[numberOfQuestion].answer4 !== " " && (
                 <button
                   className={css.answer__button}
                   value="answer4"
@@ -112,10 +117,14 @@ const Tests = () => {
                 >
                   {list[numberOfQuestion].answer4}
                 </button>
-              </div>
+              )}
             </div>
-          </section>
-        )}{" "}
+            </div>
+        )}
+        </section>
+        <section>
+          <Statistics />
+        </section>
     </div>
   );
 };

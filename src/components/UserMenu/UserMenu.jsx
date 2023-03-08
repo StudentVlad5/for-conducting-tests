@@ -17,7 +17,7 @@ const handleOut = (e) => {
  return (
         <ul className={css.userMenu__container}>
            <li className={css.userMenu__wellcome}>Wellcome {name}</li>
-           <li><Link to={'/'}><button className={css.userMenu__button} type="button" onClick={()=>handleOut()}>Log out</button></Link></li>
+           <li><Link to={'/'} className={css.userMenu__logout} onClick={()=>handleOut()}>Log out</Link></li>
         </ul>
     )
 }

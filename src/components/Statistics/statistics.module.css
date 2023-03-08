@@ -1,0 +1,15 @@
+.statistics__container{
+align-items: center;
+text-align: center;
+font-weight: 400;
+padding-top: 30px;
+}
+.statistics__border{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+}
+h4 {
+    margin-top: 20px;
+    margin-bottom: 4px;
+}
