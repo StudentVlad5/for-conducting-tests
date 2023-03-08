@@ -50,7 +50,7 @@ function resetForm () {
                 required/>
             </label>
             <label>Topic of question
-                <select 
+                <select required
                 name="topic"
                 id ="topic"
                 value={questionForm.topic}
