@@ -29,31 +29,31 @@ function Register() {
     <form className={css.signIn__Container} onSubmit={handleSubmit}>
           <MDBCol className={css.form__container}>
               <p className={css.formTitle}>Sign up</p>
-              <div>
+              <div className={css.flexrow}>
                 <label className={css.title__label}>
                     <div>Your Name
                          <div className={css.item__container}>
-                            <FaUser size="30"/>
+                            <FaUser size="25"/>
                             <input className={css.input_active} name='name' type='text' /> 
                         </div>
                     </div>
                 </label>
               </div>
-              <div>
+              <div className={css.flexrow}>
                 <label className={css.title__label}>
                     <div>Your Email
                         <div className={css.item__container}>
-                            <FaEnvelope size="30"/>
+                            <FaEnvelope size="25"/>
                             <input className={css.input_active} name='email' type='email'/>
                         </div>
                     </div>
                 </label>
               </div>
-              <div>
+              <div className={css.flexrow}>
                 <label className={css.title__label}>
                     <div>Password
                         <div className={css.item__container}>
-                            <FaLock size="30"/>
+                            <FaLock size="25"/>
                             <input className={css.input_active} name='password' type='password' />
                         </div>
                     </div>
@@ -63,11 +63,12 @@ function Register() {
                 <label className={css.title__labelforCheck}>
                     <div>
                     <MDBCheckbox name='flexCheck' value='terms' id='flexCheckDefault' />
-                    confirm the possibility of using the personal data
+                    <span>confirm the possibility </span> 
+                    <span>of using the personal data</span>
                     </div>
                   </label>
               </div>
-              <MDBBtn type="submit">Sign up</MDBBtn>
+              <MDBBtn type="submit" className={css.form_submit}>Sign up</MDBBtn>
           </MDBCol>
       </form>
   );

@@ -26,6 +26,7 @@
       user-select: none;
       touch-action: manipulation;
       text-decoration: none;
+      padding: 5px 15px;
     }
     
     .Nav__button:hover {
