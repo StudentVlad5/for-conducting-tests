@@ -58,17 +58,8 @@ function Register() {
                         </div>
                     </div>
                 </label>
-               </div>
-              <div className={css.chackbox__container}>
-                <label className={css.title__labelforCheck}>
-                    <div>
-                    <MDBCheckbox name='flexCheck' value='terms' id='flexCheckDefault' />
-                    <span>confirm the possibility </span> 
-                    <span>of using the personal data</span>
-                    </div>
-                  </label>
-              </div>
-              <MDBBtn type="submit" className={css.form_submit}>Sign up</MDBBtn>
+               </div>              
+              <button type="submit" className={css.form_submit}>Sign up</button>
           </MDBCol>
       </form>
   );
