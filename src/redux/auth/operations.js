@@ -33,7 +33,7 @@ export const authSignUpUser = (userSignIn) => async (dispatch, getState) => {
     );
   } catch (error) {
     console.log("error", error);
-    alert("Помилка", error.message);
+    alert("Помилка реєстрції", error.message);
   }
 };
 
