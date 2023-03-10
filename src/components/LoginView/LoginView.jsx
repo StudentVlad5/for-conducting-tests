@@ -2,8 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 import {
-  MDBBtn,
-  MDBCol,
+    MDBCol,
 } from 'mdb-react-ui-kit';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
 import css from "./LoginView.module.css";
