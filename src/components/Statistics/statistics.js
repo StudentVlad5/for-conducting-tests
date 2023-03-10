@@ -17,7 +17,7 @@ export const Statistics = () => {
       </span>
       <h4>HTML</h4><span>
         {statistics.html.total !== 0
-          ? Math.round(statistics.html.success / statistics.html * 100)
+          ? Math.round(statistics.html.success / statistics.html.total * 100)
           : 0}
       </span>
       <h4>JS</h4><span>

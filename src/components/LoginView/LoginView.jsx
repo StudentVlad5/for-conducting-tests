@@ -29,27 +29,27 @@ function LoginView() {
     <form className={css.signIn__Container} onSubmit={handleSubmit}>
         <MDBCol className={css.form__container}>
             <p className={css.formTitle}>Log in</p>
-                <div>
+                <div className={css.flexrow}>
                     <label className={css.title__label}>
                         <div>Your Email
                             <div className={css.item__container}>
-                                <FaEnvelope size="30"/>
+                                <FaEnvelope size="25"/>
                                 <input className={css.input_active} id='envelope_log' type='email' name='email'/>
                             </div>
                         </div>
                     </label>
                 </div>
-                <div>
+                <div className={css.flexrow}>
                     <label className={css.title__label}>
                         <div>Password
                             <div className={css.item__container}>
-                                <FaLock size="30"/>
+                                <FaLock size="25"/>
                                 <input className={css.input_active} id='password_log' type='password' name='password'/>
                             </div>
                         </div>
                 </label>
                 </div>
-            <MDBBtn type="submit">Log in</MDBBtn>
+            <button type="submit" className={css.form_submit}>Log in</button>
         </MDBCol>
     </form>
   );

@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  MDBBtn,
-  MDBCol,
-  MDBCheckbox
-} from 'mdb-react-ui-kit';
+import { MDBCol } from 'mdb-react-ui-kit';
 import { FaUser, FaEnvelope, FaLock } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { authSignUpUser } from 'redux/auth/operations';

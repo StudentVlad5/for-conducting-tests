@@ -12,6 +12,9 @@
     align-items: center;
     padding-top: 30px;
 }
+.courseName{
+    text-transform: uppercase
+}
 .courseName,
 .answer__button {
     font-size: 24px;
@@ -25,7 +28,7 @@
     padding: 12px 30px;
     color: #FFF;
     font-weight: bold;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     font-family: 'Roboto Condensed', Тahoma, sans-serif;
     background: #337AB7;
     cursor: pointer;

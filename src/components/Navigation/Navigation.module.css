@@ -27,6 +27,7 @@
       touch-action: manipulation;
       text-decoration: none;
       padding: 5px 15px;
+      height: 60px;
     }
     
     .Nav__button:hover {
@@ -37,5 +38,6 @@
     @media (min-width: 768px) {
         .Nav__button {
         padding: 10px 30px;
+        height: auto;
       }
     }

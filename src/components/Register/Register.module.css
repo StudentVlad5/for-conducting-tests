@@ -60,13 +60,14 @@
       flex: 1;
       padding: 10px;
       border: 0;
-      color: #8f8f8f;
+      color: #4d4c4c;
       font-size: 1rem;
     }
-    .input_active:focus {
+    .input_active:focus,
+    .input_active:hover {
         outline: none;
         transition: transform .15s ease;
-        transform: scale(1.1);
+        transform: scale(1.05);
       }
   
     .form_submit {
