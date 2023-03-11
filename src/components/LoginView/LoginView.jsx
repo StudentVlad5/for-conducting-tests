@@ -1,15 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 import {
     MDBCol,
 } from 'mdb-react-ui-kit';
-import { FaEnvelope, FaLock } from 'react-icons/fa';
+import { FaEnvelope, FaLock, FaUnlockAlt } from 'react-icons/fa';
 import css from "./LoginView.module.css";
 
 function LoginView() {
+    const [passwordType, setPasswordType] = useState("password");
+    const [passwordInput, setPasswordInput] = useState("");
+    const [emailInput, setEmailInput] = useState("");
     const dispatch = useDispatch();
 
+    const handlePasswordChange =(evnt)=>{
+        setPasswordInput(evnt.target.value);
+    }
+    const handleEmailChange =(evnt)=>{
+        setEmailInput(evnt.target.value);
+    }
+    
+    const togglePassword =(e)=>{
+        if(passwordType==="password")
+        {
+        setPasswordType("text")
+        return;
+        }
+        setPasswordType("password")
+    }
     const handleSubmit = e => {
         e.preventDefault();
         const form = e.currentTarget;
@@ -33,7 +51,7 @@ function LoginView() {
                         <div>Your Email
                             <div className={css.item__container}>
                                 <FaEnvelope size="25"/>
-                                <input className={css.input_active} id='envelope_log' type='email' name='email'/>
+                                <input className={css.input_active} id='envelope_log' type='email' name='email' value={emailInput} onChange={handleEmailChange}/>
                             </div>
                         </div>
                     </label>
@@ -42,8 +60,8 @@ function LoginView() {
                     <label className={css.title__label}>
                         <div>Password
                             <div className={css.item__container}>
-                                <FaLock size="25"/>
-                                <input className={css.input_active} id='password_log' type='password' name='password'/>
+                                {passwordType==="password"? <FaLock size="25" onClick={togglePassword}/>:<FaUnlockAlt size="25" onClick={togglePassword}/> }
+                                <input className={css.input_active} id='password_log' type={passwordType} name='password' value={passwordInput} onChange={handlePasswordChange}/>
                             </div>
                         </div>
                 </label>
