@@ -26,7 +26,7 @@ const Navigation = () =>{
           background: '#2C5E1A',
         }
       : { background: '#13aa52' }
-  }>Start testes</NavLink></li>}
+  }>Start testing</NavLink></li>}
         </ul>
     )
 }
