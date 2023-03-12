@@ -18,9 +18,9 @@ export default function Home() {
                   <h1>Hello friend!</h1>
                   <h2>I’m available for freelance work.</h2>
               </div>
-              <div class="hero-image-wrap">
+              <div className="hero-image-wrap">
                 <h2>...and you have the opportunity to test your knowledge</h2>
-            <img src={happyexcitedMan} class="hero-image img-fluid" alt="" />
+            <img src={happyexcitedMan} className="hero-image" alt="" />
             </div>
           
             </div>

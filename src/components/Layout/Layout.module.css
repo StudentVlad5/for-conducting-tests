@@ -1,0 +1,15 @@
+.Layout__container{
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+}
+.Layout__container_outlet {
+    display: flex;
+    flex-direction: column;
+}
+@media screen and (max-width: 768px) {
+.Layout__container, .Layout__container_outlet {
+    width: 376px;
+}
+}

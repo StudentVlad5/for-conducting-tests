@@ -2,6 +2,10 @@
 
 body {
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   flex-wrap: wrap;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -78,7 +82,6 @@ ul {
 }
 .list_section {
   display: flex;
-  width: 500px;
   height: 100vh;
   flex-direction: column;
   align-items: center;
@@ -109,7 +112,9 @@ input[name="correctAnswer"] {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
 }
+
 .hero-title-wrap,
 .hero-image-wrap {
   display: flex;
@@ -117,6 +122,27 @@ input[name="correctAnswer"] {
   align-items: center;
   flex-direction: column;
 }
+.hero-title-wrap{
+  padding-top: 0px;
+  text-align: center;
+}
 .avatar-image {
   border-radius: 50%;
+}
+.hero-image-wrap {
+  width: 100%;
+}
+
+@media screen and (max-width: 768px){
+  .hero,
+  .container{
+    flex-direction: column;
+    width: 375px;
+  }
+  .hero-title-wrap{
+    padding-top: 20px;
+  }
+  .hero-image-wrap {
+    transform: scale(.7);
+  }
 }

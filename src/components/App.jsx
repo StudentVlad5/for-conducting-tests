@@ -20,7 +20,6 @@ const dispatch = useDispatch();
       <div
         style={{
           display: 'flex',
-          minWidth: 555,
           justifyContent: 'center',
           alignItems: 'center',
           fontSize: 20,
