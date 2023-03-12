@@ -4,8 +4,29 @@ import { useDispatch, useSelector } from "react-redux";
 import { addStatistic } from "../../redux/statistics/operations";
 import { getStatistics } from "../../redux/statistics/selectors";
 import { Statistics } from "components/Statistics/statistics";
-
 import css from "./tests.module.css";
+
+import Vue from "vue";
+import Toast from "vue-toastification";
+import "vue-toastification/dist/index.css";
+const options = {
+  transition: "Vue-Toastification__bounce",
+  maxToasts: 3,
+  newestOnTop: true,
+  position: "top-right",
+  timeout: 2000,
+  closeOnClick: true,
+  pauseOnFocusLoss: true,
+  pauseOnHover: false,
+  draggable: true,
+  draggablePercent: 0.7,
+  showCloseButtonOnHover: false,
+  hideProgressBar: true,
+  closeButton: "button",
+  icon: true,
+  rtl: false,
+};
+Vue.use(Toast, options);
 
 const Tests = () => {
   const [numberOfQuestion, setNumberOfQuestion] = useState(0);
@@ -40,8 +61,9 @@ const Tests = () => {
 
     total = total + 1;
     if (e.target.value === list[numberOfQuestion].correctAnswer) {
+      Vue.$toast.success("Correct answer");
       success++;
-    }
+    } else {Vue.$toast.error("Ooops. wrong answer", {color: 'red'});}
 
     dispatch(
       addStatistic({ [`${course}`]: { total: total, success: success } })
@@ -65,16 +87,15 @@ const Tests = () => {
           html
         </div>
       </section>
-    <section className={css.question__container}>
-    {numberOfQuestion >= list.length && (
-        <section className={css.last__container}>
-          <h4>Це власне було останнє питання цього курсу.</h4>
-        </section>
-      )}
-      {list.length !== 0 &&
-        course !== "" &&
-        numberOfQuestion < list.length && (
-        <div><div className={css.question}>
+      <section className={css.question__container}>
+        {numberOfQuestion >= list.length && (
+          <section className={css.last__container}>
+            <h4>Це власне було останнє питання цього курсу.</h4>
+          </section>
+        )}
+        {list.length !== 0 && course !== "" && numberOfQuestion < list.length && (
+          <div>
+            <div className={css.question}>
               {list[numberOfQuestion].question}
             </div>
             <div className={css.answer__container}>
@@ -119,12 +140,12 @@ const Tests = () => {
                 </button>
               )}
             </div>
-            </div>
+          </div>
         )}
-        </section>
-        <section>
-          <Statistics />
-        </section>
+      </section>
+      <section>
+        <Statistics />
+      </section>
     </div>
   );
 };

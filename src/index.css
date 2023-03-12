@@ -104,3 +104,19 @@ input[type="radio"]:checked:before {
 input[name="correctAnswer"] {
 	accent-color: #13aa52;
 }
+.hero,
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-title-wrap,
+.hero-image-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.avatar-image {
+  border-radius: 50%;
+}
